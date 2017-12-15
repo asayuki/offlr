@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Offlr Flickr Gallery</title>
+    <link rel="stylesheet" type="text/css" href="../dist/offlr.css">
+    <script type="text/javascript" src="../dist/offlr.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2, input {
+        margin: 2rem;
+      }
+
+    </style>
+  </head>
+  <body>
+    
+    <h1>Demo of Offlr Flickr Gallery</h1>
+
+    <input type="text" name="searchmore" placeholder="Search more" />
+
+    <div class="fn-offlr-div"></div>
+
+    <h2>End of demo</h2>
+    
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        var offlr = new Offlr({
+          element: document.querySelector('.fn-offlr-div'),
+          api_key: '1a185ad64c1ff334b91e774e88e34706',
+          search_tag: 'gandalf',
+          per_page: 10
+        });
+
+        document.querySelector('input[name="searchmore"]').addEventListener('change', function (e) {
+          offlr.search(e.target.value);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "offlr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "grunt",
+    "build": "grunt build",
+    "server": "http-server ./demo -p 8080",
+    "start": "npm-run-all --parallel dev server"
+  },
+  "author": "neme <neme@whispered.se>",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^7.2.3",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^2.0.0",
+    "http-server": "^0.10.0",
+    "load-grunt-tasks": "^3.5.2",
+    "npm-run-all": "^4.1.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie 9"
+  ]
+}
