@@ -15,7 +15,7 @@ module.exports = (grunt) => {
                     beautify: true
                 },
                 files: {
-                    'dist/offlr.js': 'src/js/offlr.js'
+                    'demo/offlr.js': 'src/js/offlr.js'
                 }
             }
         },
@@ -44,7 +44,7 @@ module.exports = (grunt) => {
                     outputStyle: 'expanded'
                 },
                 files: {
-                    'dist/offlr.css': 'src/scss/style.scss'
+                    'demo/offlr.css': 'src/scss/style.scss'
                 }
             }
         },
@@ -56,7 +56,10 @@ module.exports = (grunt) => {
                     require('autoprefixer')
                 ]
             },
-            dist: {
+            development: {
+                src: 'demo/*.css'
+            },
+            production: {
                 src: 'dist/*.css'
             }
         },
@@ -68,11 +71,11 @@ module.exports = (grunt) => {
             },
             styles: {
                 files: 'src/scss/**/*.scss',
-                tasks: ['sass:development', 'postcss']
+                tasks: ['sass:development', 'postcss:development']
             }
         }
     });
 
-    grunt.registerTask('default', ['sass:development', 'uglify:development', 'watch']);
-    grunt.registerTask('build', ['sass:production', 'postcss', 'eslint', 'uglify:production']);
+    grunt.registerTask('default', ['sass:development', 'postcss:development', 'eslint', 'uglify:development', 'watch']);
+    grunt.registerTask('build', ['sass:production', 'postcss:production', 'eslint', 'uglify:production']);
 }

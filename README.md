@@ -22,11 +22,18 @@ And then initiate is where you feel like like so:
 </script>
 ```
 
-### Optional options
+### Options
+
+#### Required
+
+* `element` - Target element for gallery
+* `api_key` - API Key for Flickr API
+
+#### Optional
 
 * `per_page` - Defaults to 10
-* `elementClass` - Defaults to `offlr-gallery`
-* `photoClass` - Defaults to `offlr-gallery__photo`
+* `elementClass` - Defaults to `offlr-gallery`. 
+* `photoClass` - Defaults to `offlr-gallery__photo`.
 * `search_tag` - Defaults to null
 
 ### Public functions
@@ -57,3 +64,13 @@ document.querySelector('input[name="search"]').addEventListener('change', functi
     * Solution: create a request to flickr.photos.getSizes to get possible sizes for that image and show the one that fits the current browser best.
 * WAI-ARIA
 * Extend to use other of flickr-apis functions.
+
+## Tested on:
+
+* IE9 - Need to load local JSON
+* IE10
+* IE11
+* Edge
+* Latest Chrome
+* Latest Firefox
+* Latest iOS

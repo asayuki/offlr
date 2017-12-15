@@ -53,11 +53,13 @@ var Offlr = (function (opts) { // eslint-disable-line no-unused-vars
         clearMessages();
         clearTimeout(requestTimer);
         options.element.setAttribute('data-loading', 'true');
-        
-        var searchRequest = new XMLHttpRequest();
-        searchRequest.open('GET', 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + options.api_key + '&tags=' + searchValue + '&per_page=' + options.per_page + '&format=json&nojsoncallback=1', true);
+
+
         // To trigger slow loading and then error:
         // Add for example another r to flickr.com
+        // For IE9: change URL to testdata.json
+        var searchRequest = new XMLHttpRequest();
+        searchRequest.open('GET', 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + options.api_key + '&tags=' + searchValue + '&per_page=' + options.per_page + '&format=json&nojsoncallback=1', true);
         
         searchRequest.onreadystatechange = function () {
             if (searchRequest.readyState === 4) {
@@ -123,10 +125,10 @@ var Offlr = (function (opts) { // eslint-disable-line no-unused-vars
      * Window resize event
      */
     function galleryResizeEvent () {
-        if (!options.element.firstElementChild || !options.element.firstElementChild.classList.contains(options.photoClass)) {
+        if (!options.element.firstElementChild || !options.element.firstElementChild.className.indexOf(options.photoClass) < 0) {
             return;
         }
-
+        
         var newWidth = window.getComputedStyle(options.element.firstElementChild, null).getPropertyValue('width');
         if (newWidth !== itemWidth) {
             itemWidth = newWidth;

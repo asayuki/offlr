@@ -42,7 +42,7 @@ var Offlr = function(e) {
     e.search_tag && t(e.search_tag);
     var n, l, r = document.createElement("div");
     return r.className += o.elementClass + "__message", window.addEventListener("resize", function() {
-        if (o.element.firstElementChild && o.element.firstElementChild.classList.contains(o.photoClass)) {
+        if (o.element.firstElementChild && !(!o.element.firstElementChild.className.indexOf(o.photoClass) < 0)) {
             var e = window.getComputedStyle(o.element.firstElementChild, null).getPropertyValue("width");
             e !== l && (l = e, o.element.querySelectorAll("." + o.photoClass).forEach(function(e) {
                 e.style.height = l;
